@@ -1,3 +1,4 @@
+/*jshint esversion: 6*/
 (function(window) {
 
   /*
@@ -11,7 +12,11 @@
    * use a dom method to select an element where it's ID matches the value of lightId
    * on this dom element, set the className to 'light-green'
    */
-
+   function setMyLightGreen() {
+    let lightId = this.dataset.lightId;
+    let targetColor = document.getElementById(lightId);
+    targetColor.className = "light-green";
+  }
 
   /*
    * Create a function named setMyLightClass
@@ -24,14 +29,32 @@
    * use a dom method to select an element where it's ID matches the value of lightId
    * on this dom element, set the className to the value of desiredClass
    */
-
+   function setMyLightClass(event, desiredClass) {
+    let lightId = this.dataset.lightId;
+    let myLightClass = document.getElementById(lightID);
+    myLightClass.className = "desiredClass";
+  }
 
   /*
    * Declare 15 constants btn1, btn2, btn3, ...
    * use a dom element selector method to assign each const
    * to the button that has an id of the same name.
    */
-
+   const btn1 = document.getElementById("btn1");
+   const btn2 = document.getElementById("btn2");
+   const btn3 = document.getElementById("btn3");
+   const btn4 = document.getElementById("btn4");
+   const btn5 = document.getElementById("btn5");
+   const btn6 = document.getElementById("btn6");
+   const btn7 = document.getElementById("btn7");
+   const btn8 = document.getElementById("btn8");
+   const btn9 = document.getElementById("btn9");
+   const btn10 = document.getElementById("btn10");
+   const btn11= document.getElementById("btn11");
+   const btn12 = document.getElementById("btn12");
+   const btn13 = document.getElementById("btn13");
+   const btn14 = document.getElementById("btn14");
+   const btn15 = document.getElementById("btn15");
 
   /*
    * Add a click event listener to btn1
@@ -41,7 +64,9 @@
    * using the Function prototype method: apply
    * to set the context to the correct object (the current context)
    */
-
+   btn1.addEventListener("click", function() {
+    setMyLightGreen.apply(this);
+  });
 
   /*
    * Add a click event listener to btn2
@@ -51,13 +76,13 @@
    * using the Function prototype method: apply
    * to set the context to the correct object
    */
-
+   btn2.addEventListener("click", () => setMyLightGreen.apply(btn2));
 
   /*
    * Add a click event listener to btn3
    * the handler method will be a reference to the setMyLightGreen function
    */
-
+   btn3.addEventListener("click", setMyLightGreen);
 
   /*
    * Add a click event listener to btn4
@@ -69,7 +94,9 @@
    * to set the context to the correct object (the current context)
    *   and passing two aditional arguments, event and 'light-green'
    */
-
+   btn4.addEventListener("click", function(event) {
+    setMyLightClass.apply(this, [event, 'light-green']);
+  });
 
   /*
    * Add a click event listener to btn5
@@ -212,4 +239,4 @@
    */
 
 
-}(window));
+ }(window));
